@@ -15,7 +15,9 @@ export default class Main {
   constructor() {
     // 维护当前requestAnimationFrame的id
     this.aniId = 0
-
+    wx.showShareMenu({
+      
+    })
     this.restart()
   }
 
