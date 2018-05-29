@@ -25,6 +25,8 @@ export default class DataBus {
     this.animations = []
     this.gameOver   = false
     this.gameTime = 30
+    this.allTime = 0
+    this.globalSpeed = 4
   }
 
   /**

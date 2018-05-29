@@ -55,6 +55,10 @@ export default class Main {
    */
   timeCountDown(){
     databus.gameTime -= 1
+    databus.allTime += 1
+    if (databus.allTime % 10 == 0){
+      databus.globalSpeed += 1
+    }
     if (databus.gameTime <= 0){
         databus.gameOver = true
     }
@@ -67,7 +71,7 @@ export default class Main {
   enemyGenerate() {
     if (databus.frame % 30 === 0) {
       let enemy = databus.pool.getItemByClass('enemy', Enemy)
-      let speed =  Math.ceil(Math.random()*3) + 1
+      let speed =  Math.ceil(Math.random()* databus.globalSpeed) + 1
       let type = Math.ceil(Math.random() * 3);
       if (type == 0){
         type = 1;
