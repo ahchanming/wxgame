@@ -76,6 +76,10 @@ export default class Main {
       if (type == 0){
         type = 1;
       }
+      let clock = Math.ceil(Math.random()* 100)
+      if (clock <= 10){
+        type = 10
+      }
       enemy.init(speed, type)
       databus.enemys.push(enemy)
     }

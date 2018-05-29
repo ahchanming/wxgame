@@ -4,6 +4,7 @@ import DataBus   from '../databus'
 const ENEMY_IMG_SRC = 'images/ball1.png'
 const ENEMY_IMG_SRC_2 = 'images/ball2.jpg'
 const ENEMY_IMG_SRC_3 = 'images/ball3.jpg'
+const ENEMY_IMG_SRC_CLOCK = 'images/clock.png'
 const ENEMY_WIDTH   = 60
 const ENEMY_HEIGHT  = 60
 
@@ -34,6 +35,10 @@ export default class Enemy extends Animation {
     }
     if (type == 3){
       this.img.src = ENEMY_IMG_SRC_3
+    }
+
+    if (type == 10){
+      this.img.src = ENEMY_IMG_SRC_CLOCK
     }
 
     this[__.speed] = speed
@@ -70,6 +75,9 @@ export default class Enemy extends Animation {
   doAction(databus){
     if (this.type >=1 && this.type <= 9){
       databus.score += this.type;
+    }
+    if (this.type == 10){
+      databus.gameTime += 3
     }
   }
 }
